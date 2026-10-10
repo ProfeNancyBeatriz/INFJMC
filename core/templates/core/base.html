@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}INFJMC{% endblock %} | Área de Informática</title>
+    <link rel="stylesheet" href="{% static 'core/css/estilos.css' %}">
+</head>
+<body>
+    <header class="encabezado">
+        <img src="{% static 'core/img/logo.png' %}" alt="Logo institucional" class="logo">
+        <nav class="menu">
+            <a href="{% url 'home' %}">Inicio</a>
+            <a href="{% url 'carreras' %}">Carreras</a>
+            <a href="{% url 'docentes' %}">Docentes</a>
+        </nav>
+    </header>
+
+    <main class="contenido">
+        {% block contenido %}
+        {% endblock %}
+    </main>
+
+    <footer class="pie">
+        <p>Área de Informática &copy; 2026</p>
+    </footer>
+
+    <script src="{% static 'core/js/main.js' %}"></script>
+</body>
+</html>
