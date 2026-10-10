@@ -1,22 +1,19 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>INFJMC - Docentes</title>
-</head>
-<body>
-    <nav>
-        <a href="{% url 'home' %}">Inicio</a> |
-        <a href="{% url 'carreras' %}">Carreras</a> |
-        <a href="{% url 'docentes' %}">Docentes</a>
-    </nav>
+{% extends 'core/base.html' %}
+
+{% block titulo %}Docentes{% endblock %}
+
+{% block contenido %}
     <h1>Docentes del Área</h1>
-    <ul>
-        {% for d in docentes %}
-            <li><strong>{{ d.nombre }}</strong> - {{ d.asignatura }}</li>
-        {% empty %}
-            <li>No hay docentes registrados.</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+    <table class="tabla">
+        <thead>
+            <tr><th>Nombre</th><th>Asignatura</th></tr>
+        </thead>
+        <tbody>
+            {% for d in docentes %}
+                <tr><td>{{ d.nombre }}</td><td>{{ d.asignatura }}</td></tr>
+            {% empty %}
+                <tr><td colspan="2">No hay docentes registrados.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
